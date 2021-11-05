@@ -10,9 +10,10 @@ Red Hat
 
 How to configure a basic Nginx reverse proxy.
 
-##Nginx Customisation
+## Nginx Customisation
 
 [Nginx Docker Page](https://hub.docker.com/_/nginx/)
+
 [Nginx beginners guide](https://nginx.org/en/docs/beginners_guide.html)
 
 ## Ubuntu Nginx Container Test
@@ -26,7 +27,7 @@ podman rm --force nginx
 ## Ubuntu Nginx Proxy Config Sample
 
 1. `mkdir -p /home/<user>/etc/nginx`
-1. Create file /home/<user>/etc/nginx/nginx.conf
+1. Create file `/home/<user>/etc/nginx/nginx.conf`
 
 ```
 user  nginx;
@@ -63,15 +64,19 @@ http {
         listen [::]:80;
         server_name localhost;
 
+        # Local, static content from within the image (default)
         location / {
             root /usr/share/nginx/html;
         }
+
+        # URI path to a local server e.g. RH Web Server
         location /abc {
-            proxy_set_header Host "abc";
             proxy_pass http://localhost:7080;
         }
+
+        # URI path mapping to OCP hosted service (Code Ready Container)
         location /abc/def {
-            proxy_set_header Host "<ocp 4 hostname (route)>";
+            proxy_set_header Host "myroute-myproject.apps-crc.testing";
             proxy_pass http://ocp.external.ip;
         }
 
@@ -87,6 +92,6 @@ podman run -d --name nginx -p 8080:80 -v ./etc/nginx/nginx.conf:/etc/nginx/nginx
 
 ## Expose the WSL2 port
 
-1. On Ubuntu - ip a
+1. On Ubuntu - `ip a`
 1. Determine virtual ip address e.g. 172.22.88.x
 1. On Windows - `netsh interface portproxy add v4tov4 listenport=8080 listenaddress=127.0.0.1 connectport=8080 connectaddress=172.22.88.x`
