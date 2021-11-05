@@ -90,8 +90,13 @@ http {
 podman run -d --name nginx -p 8080:80 -v ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf docker.io/nginx
 ```
 
-## Expose the WSL2 port
+## Windows Subsystem for Linux 2
 
-1. On Ubuntu - `ip a`
-1. Determine virtual ip address e.g. 172.22.88.x
+This next bit applies if you're running your nginx container inside WSL2.
+
+### Expose the WSL2 port
+
+1. On Linux - `ip a`
+1. Use previous command output to determine virtual ip address e.g. 172.22.88.x
 1. On Windows - `netsh interface portproxy add v4tov4 listenport=8080 listenaddress=127.0.0.1 connectport=8080 connectaddress=172.22.88.x`
+1. `curl http://localhost:8080/`
