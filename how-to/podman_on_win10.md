@@ -34,5 +34,5 @@ wget -nv https://download.opensuse.org/repositories/devel:kubic:libcontainers:st
 apt-get update -qq -y
 apt-get -qq --yes install podman
 exit
-podman run -it --rm docker.io/busybox echo 'Hello world'
+podman run -it --rm quay.io/prometheus/busybox echo 'Hello world'
 ```

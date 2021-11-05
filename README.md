@@ -1,2 +1,3 @@
 # general-tip-tools
-A public place to share tips, tools, scripts etc.
+
+A public place for the STP team to share curated OCP tips, tools, scripts etc.
