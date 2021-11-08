@@ -1,0 +1,25 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: git-maven-run-
+spec:
+  pipelineRef:
+    name: git-maven
+  serviceAccountName: pipeline
+  params:
+  - name: git-url
+    value: https://github.com/RedHatTraining/DO288-apps
+  - name: maven-context-dir
+    value: java-serverhost
+  workspaces:
+  - name: data
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 500Mi
+  - name: maven-settings
+    configMap:
+      name: maven-settings

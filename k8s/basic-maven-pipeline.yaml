@@ -1,0 +1,81 @@
+# A simple Tekton pipeline that clones a Git project and then uses
+# Maven to process it.
+#
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: git-maven
+spec:
+  params:
+  -
+    name: git-url
+    type: string
+    description: git repo url to clone from
+  -
+    name: git-revision
+    type: string
+    description: "branch, tag, sha etc."
+    default: master
+  -
+    name: git-subdir
+    type: string
+    description: subdirectory inside the output workspace to clone the repo into
+    default: ""
+  -
+    name: maven-context-dir
+    type: string
+    description: the context directory within the repository for sources on which we want to execute maven goals
+    default: ""
+  -
+    name: maven-goals
+    type: array
+    description: switches and goals to be executed
+    default:
+      - --batch-mode
+      - -DskipTests
+      - clean
+      - package
+
+  workspaces:
+  - name: data
+  - name: maven-settings
+
+  tasks:
+  -
+    name: git-fetch
+    taskRef:
+      name: git-clone
+      kind: ClusterTask
+    params:
+    -
+      name: url
+      value: $(params.git-url)
+    -
+      name: revision
+      value: $(params.git-revision)
+    -
+      name: subdirectory
+      value: $(params.git-subdir)
+    workspaces:
+    -
+      name: output
+      workspace: data
+  -
+    name: maven
+    taskRef:
+      name: maven
+      kind: ClusterTask
+    runAfter:
+    - git-fetch
+    params:
+    -
+      name: CONTEXT_DIR
+      value: $(params.maven-context-dir)
+    -
+      name: GOALS
+      value: [ "$(params.maven-goals[*])" ]
+    workspaces:
+    - name: source
+      workspace: data
+    - name: maven-settings
+      workspace: maven-settings
