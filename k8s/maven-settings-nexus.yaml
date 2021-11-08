@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: maven-settings
+data:
+  settings.xml: |
+    <?xml version="1.0" encoding="UTF-8"?>
+    <settings>
+      <mirrors>
+        <mirror>
+          <id>nexus</id>
+          <name>Default mirror</name>
+          <url>http://nexus3-ci-common.apps-crc.testing/repository/maven-central/</url>
+          <mirrorOf>*</mirrorOf>
+        </mirror>
+      </mirrors>
+    </settings>
