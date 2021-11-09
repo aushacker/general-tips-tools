@@ -9,9 +9,15 @@ data:
       <mirrors>
         <mirror>
           <id>central</id>
-          <name>Default mirror</name>
+          <name>Maven Central Respository</name>
           <url>https://repo1.maven.org/maven2/</url>
-          <mirrorOf>*</mirrorOf>
+          <mirrorOf>central</mirrorOf>
+        </mirror>
+        <mirror>
+          <id>redhat-ga</id>
+          <name>Red Hat Respository</name>
+          <url>https://maven.repository.redhat.com/ga/all/</url>
+          <mirrorOf>redhat</mirrorOf>
         </mirror>
       </mirrors>
     </settings>
