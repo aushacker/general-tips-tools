@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sonarqube-db
+  labels:
+    app.openshift.io/runtime: postgresql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sonarqube
+  template:
+    metadata:
+      labels:
+        app: sonarqube
+    spec:
+      containers:
+      - name: postgres
+        image: 'registry.redhat.io/rhel8/postgresql-13:latest'
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRESQL_USER
+          value: sonarUser
+        - name: POSTGRESQL_PASSWORD
+          value: sonarPass
+        - name: POSTGRESQL_DATABASE
+          value: sonarDB
