@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: sonarqube
+  labels:
+    app: sonarqube
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - protocol: TCP
+      port: 9000
+      targetPort: 9000
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: sonarqube
