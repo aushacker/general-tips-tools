@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: maven-settings
+data:
+  settings.xml: |
+    <?xml version="1.0" encoding="UTF-8"?>
+    <settings>
+      <mirrors>
+        <mirror>
+          <id>nexus-central</id>
+          <name>Central mirror</name>
+          <url>http://nexus3-ci-common.apps-crc.testing/repository/maven-central/</url>
+          <mirrorOf>central</mirrorOf>
+        </mirror>
+        <mirror>
+          <id>nexus-redhat-ga</id>
+          <name>Red Hat GA mirror</name>
+          <url>http://nexus3-ci-common.apps-crc.testing/repository/redhat-ga/</url>
+          <mirrorOf>redhat-ga</mirrorOf>
+        </mirror>
+      </mirrors>
+    </settings>
