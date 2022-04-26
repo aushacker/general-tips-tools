@@ -1,0 +1,9 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    build: custom-nginx
+  name: custom-nginx
+spec:
+  lookupPolicy:
+    local: true

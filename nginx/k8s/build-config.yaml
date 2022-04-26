@@ -1,0 +1,20 @@
+kind: BuildConfig
+apiVersion: v1
+metadata:
+  labels:
+    build: custom-nginx
+  name: build-custom-nginx
+spec:
+  source:
+    git:
+      uri: ${GIT_URL}
+    type: Git
+  output:
+    to:
+      kind: ImageStreamTag
+      name: custom-nginx:latest
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+      imageOptimizationPolicy: SkipLayers
+    type: Docker
