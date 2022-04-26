@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx
+  annotations:
+    image.openshift.io/triggers: >-
+      [{"from":{"kind":"ImageStreamTag","name":"custom-nginx:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"nginx\")].image"}]
 spec:
   replicas: 1
   selector:
