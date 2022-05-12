@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sleep-both
+  labels:
+    app: sleep-both
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sleep-both
+  template:
+    metadata:
+      labels:
+        app: sleep-both
+    spec:
+      containers:
+      - name: sleep-request
+        image: registry.access.redhat.com/ubi8/ubi:latest
+        resources:
+          requests:
+            cpu: '50m'
+            memory: '64Mi'
+          limits:
+            cpu: '500m'
+            memory: '128Mi'
+        command:
+          - /bin/bash
+          - -c
+          - 'sleep 300'

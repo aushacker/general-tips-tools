@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sleep-no-limits
+  labels:
+    app: sleep-no-limits
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sleep-no-limits
+  template:
+    metadata:
+      labels:
+        app: sleep-no-limits
+    spec:
+      containers:
+      - name: sleep-no-limits
+        image: registry.access.redhat.com/ubi8/ubi
+        command:
+          - /bin/bash
+          - -c
+          - 'sleep 300'
