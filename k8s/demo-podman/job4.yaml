@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: podman-version-
+spec:
+  template:
+    spec:
+      serviceAccountName: mybuilder
+      securityContext:
+        runAsUser: 1000
+      containers:
+      - name: podman-version
+        image: registry.access.redhat.com/ubi8/podman:8.6
+        imagePullPolicy: IfNotPresent
+        command:
+        - podman
+        - version
+      restartPolicy: Never
