@@ -1,0 +1,19 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: jenkins
+  labels:
+    app: jenkins
+spec:
+  channel: helm-test/bitnami-charts
+  name: jenkins
+  packageFilter:
+    version: 10.2.4
+  packageOverrides:
+    - packageAlias: jenkins
+      packageName: jenkins
+  placement:
+    placementRef:
+      kind: PlacementRule
+      name: jenkins
+  secondaryChannel: ''
