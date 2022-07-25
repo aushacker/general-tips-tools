@@ -8,7 +8,7 @@ spec:
   channel: helm-test/bitnami-charts
   name: jenkins
   packageFilter:
-    version: 10.2.4
+    version: 10.2.4         # NB. must match version: in index.yaml (not appVersion:)
   packageOverrides:
     - packageAlias: jenkins
       packageName: jenkins

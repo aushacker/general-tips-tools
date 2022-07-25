@@ -3,5 +3,6 @@ kind: Channel
 metadata:
   name: bitnami-charts
 spec:
+  # pathname target needs to contain a helm index.yaml file 
   pathname: 'https://charts.bitnami.com/bitnami/'
   type: HelmRepo
