@@ -12,6 +12,13 @@ spec:
   packageOverrides:
     - packageAlias: jenkins
       packageName: jenkins
+      packageOverrides:
+        - path: spec
+          value:            # Keys within match those in values.yaml
+            service:
+              ports:
+                http: 8080
+                https: 8443
   placement:
     placementRef:
       kind: PlacementRule
