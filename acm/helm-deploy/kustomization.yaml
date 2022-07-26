@@ -7,4 +7,3 @@ resources:
 - channel.yaml
 - application.yaml
 - subscription.yaml
-- placementrule.yaml
