@@ -5,6 +5,9 @@ A public place for the STP team to share curated OCP tips, tools, scripts etc.
 
 # Red Hat Know Issues & Solutions
 
+## OCP in General
+[How to Use 'fio' to Check Etcd Disk Performance in OCP](https://access.redhat.com/solutions/4885641)
+
 ## OCP on VMware
 
 [Modifying the vSphere configuration in OpenShift 4](https://access.redhat.com/solutions/4618011)
