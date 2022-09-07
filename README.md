@@ -10,6 +10,8 @@ A public place for the STP team to share curated OCP tips, tools, scripts etc.
 
 [Rebuild all OpenShift-OVN-Kubernetes databases](https://access.redhat.com/articles/6963671)
 
+[How to transfer ownership of an Openshift4 cluster](https://www.youtube.com/watch?v=OHaaSO61V1g)
+
 ## OCP on VMware
 
 [Modifying the vSphere configuration in OpenShift 4](https://access.redhat.com/solutions/4618011)
