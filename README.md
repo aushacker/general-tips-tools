@@ -7,6 +7,7 @@ A public place for the STP team to share curated OCP tips, tools, scripts etc.
 
 ## OCP in General
 [How to Use 'fio' to Check Etcd Disk Performance in OCP](https://access.redhat.com/solutions/4885641)
+[Rebuild all OpenShift-OVN-Kubernetes databases](https://access.redhat.com/articles/6963671)
 
 ## OCP on VMware
 
