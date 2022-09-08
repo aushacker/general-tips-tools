@@ -2,6 +2,9 @@
 
 A public place for the STP team to share curated OCP tips, tools, scripts etc.
 
+# Red Hat Blogs / References
+[How to set up your GitOps directory structure](https://developers.redhat.com/articles/2022/09/07/how-set-your-gitops-directory-structure)
+
 
 # Red Hat Know Issues & Solutions
 
