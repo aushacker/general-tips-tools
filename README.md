@@ -25,3 +25,6 @@ A public place for the STP team to share curated OCP tips, tools, scripts etc.
 ## OCP on BareMetal
 
 [Update baremetalhost IP address and Hostname to complete machine provisioning and worker CSR auto-approval on IPI Baremetal](https://access.redhat.com/solutions/5734541)
+
+## ACM
+[How to destroy managed cluster without using ACM console?](https://access.redhat.com/solutions/5214651)
