@@ -1,19 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: configmap-demo5
+  name: configmap-demo4
+  annotations:
+    about: |
+      Merges a config file into the /etc/pam.d directory.
 spec:
   selector:
     matchLabels:
-      app: demo5
+      app: demo4
   replicas: 1
   template:
     metadata:
       labels:
-        app: demo5
+        app: demo4
     spec:
       containers:
-      - name: demo5
+      - name: demo4
         image: registry.access.redhat.com/ubi9-minimal:latest
         command: ["sleep", "3600"]
         securityContext:
@@ -26,10 +29,13 @@ spec:
             type: RuntimeDefault
         volumeMounts:
         - name: config
-          mountPath: "/etc/pam.d/cm"
-          subPath: foo
+          mountPath: "/etc/pam.d/game.properties"
+          subPath: game.properties
           readOnly: true
       volumes:
       - name: config
         configMap:
           name: game-demo
+          items:
+          - key: game.properties
+            path: game.properties

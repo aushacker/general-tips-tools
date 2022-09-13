@@ -1,19 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: configmap-demo4
+  name: configmap-demo3
+  annotations:
+    about: |
+      Deliberately overwrites the /etc/pam.d directory with a ConfigMap mount.
 spec:
   selector:
     matchLabels:
-      app: demo4
+      app: demo3
   replicas: 1
   template:
     metadata:
       labels:
-        app: demo4
+        app: demo3
     spec:
       containers:
-      - name: demo4
+      - name: demo3
         image: registry.access.redhat.com/ubi9-minimal:latest
         command: ["sleep", "3600"]
         securityContext:
