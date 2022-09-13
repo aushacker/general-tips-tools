@@ -17,8 +17,7 @@ spec:
     spec:
       containers:
       - name: demo1
-        image: registry.access.redhat.com/ubi9-minimal:latest
-        command: ["sleep", "3600"]
+        image: registry.access.redhat.com/ubi8/pause:8.6
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:

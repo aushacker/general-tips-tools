@@ -17,8 +17,7 @@ spec:
     spec:
       containers:
       - name: demo2
-        image: registry.access.redhat.com/ubi9-minimal:latest
-        command: ["sleep", "3600"]
+        image: registry.access.redhat.com/ubi8/pause:8.6
         env:
         - name: INITIAL_LIVES
           valueFrom:
