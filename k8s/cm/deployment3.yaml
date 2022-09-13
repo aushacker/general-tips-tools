@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configmap-demo4
+spec:
+  selector:
+    matchLabels:
+      app: demo4
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demo4
+    spec:
+      containers:
+      - name: demo4
+        image: registry.access.redhat.com/ubi9-minimal:latest
+        command: ["sleep", "3600"]
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+        volumeMounts:
+        - name: config
+          mountPath: "/etc/pam.d"
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: game-demo
+          items:
+          - key: "game.properties"
+            path: "game.properties"
+          - key: "user-interface.properties"
+            path: "user-interface.properties"

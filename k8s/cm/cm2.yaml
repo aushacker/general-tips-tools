@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example2
+data:
+  foo.properties: |
+    abc=def
+  bar.properties: |
+    ghi=jkl
+    mno=pqr

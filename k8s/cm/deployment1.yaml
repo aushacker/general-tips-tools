@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configmap-demo1
+  annotations:
+    about: |
+      Volume mounts the game-demo config map. Because it omits the configMap.items section all keys/values in the ConfigMap are treated as files.
+spec:
+  selector:
+    matchLabels:
+      app: demo1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demo1
+    spec:
+      containers:
+      - name: demo1
+        image: registry.access.redhat.com/ubi9-minimal:latest
+        command: ["sleep", "3600"]
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+        volumeMounts:
+        - name: config
+          mountPath: "/config"
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: game-demo

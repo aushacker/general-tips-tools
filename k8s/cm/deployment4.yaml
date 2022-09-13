@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configmap-demo5
+spec:
+  selector:
+    matchLabels:
+      app: demo5
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demo5
+    spec:
+      containers:
+      - name: demo5
+        image: registry.access.redhat.com/ubi9-minimal:latest
+        command: ["sleep", "3600"]
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+        volumeMounts:
+        - name: config
+          mountPath: "/etc/pam.d/cm"
+          subPath: foo
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: game-demo

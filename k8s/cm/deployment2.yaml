@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configmap-demo2
+  annotations:
+    about: |
+      Volume mounts the game-demo config map. As it specifies the configMap.items section, only a subset of keys in the ConfigMap are treated as files.
+spec:
+  selector:
+    matchLabels:
+      app: demo2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demo2
+    spec:
+      containers:
+      - name: demo2
+        image: registry.access.redhat.com/ubi9-minimal:latest
+        command: ["sleep", "3600"]
+        env:
+        - name: INITIAL_LIVES
+          valueFrom:
+            configMapKeyRef:
+              name: game-demo
+              key: player_initial_lives
+        - name: UI_PROPS_FILENAME
+          valueFrom:
+            configMapKeyRef:
+              name: game-demo
+              key: ui_properties_file_name
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+        volumeMounts:
+        - name: config
+          mountPath: "/config"
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: game-demo
+          items:
+          - key: "game.properties"
+            path: "game.properties"
+          - key: "user-interface.properties"
+            path: "user-interface.properties"
