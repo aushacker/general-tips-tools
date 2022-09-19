@@ -18,6 +18,8 @@ A public place for the STP team to share curated OCP tips, tools, scripts etc.
 
 [How to transfer ownership of an Openshift4 cluster](https://www.youtube.com/watch?v=OHaaSO61V1g)
 
+[How to add a second network interface on RHOCP 4 nodes?](https://access.redhat.com/solutions/5915951)
+
 ## OCP on VMware
 
 [Modifying the vSphere configuration in OpenShift 4](https://access.redhat.com/solutions/4618011)
