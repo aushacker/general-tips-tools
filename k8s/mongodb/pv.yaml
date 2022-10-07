@@ -1,0 +1,14 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: mongodb
+spec:
+  capacity:
+    storage: 1Gi
+  nfs:
+    server: 192.168.22.1
+    path: /shares/mongodb
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
