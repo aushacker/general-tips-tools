@@ -11,3 +11,4 @@ spec:
       storage: 1Gi
   volumeName: mongodb
   storageClassName: ""
+#  storageClassName: nfs-client
