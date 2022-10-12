@@ -20,6 +20,8 @@ A public place for the STP team to share curated OCP tips, tools, scripts etc.
 
 [How to add a second network interface on RHOCP 4 nodes?](https://access.redhat.com/solutions/5915951)
 
+[How to start Red Hat CoreOS (RHCOS) in emergency mode in OpenShift Container Platform 4](https://access.redhat.com/solutions/5500131)
+
 ## OCP on VMware
 
 [Modifying the vSphere configuration in OpenShift 4](https://access.redhat.com/solutions/4618011)
