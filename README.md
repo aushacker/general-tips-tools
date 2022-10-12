@@ -28,6 +28,8 @@ A public place for the STP team to share curated OCP tips, tools, scripts etc.
 
 [Permissions in VMware vCenter for OpenShift to create Persistent Volumes](https://access.redhat.com/solutions/4821601)
 
+[OCP node creation fails when applying custom machineConfig](https://access.redhat.com/solutions/5673901)
+
 ## OCP on BareMetal
 
 [Update baremetalhost IP address and Hostname to complete machine provisioning and worker CSR auto-approval on IPI Baremetal](https://access.redhat.com/solutions/5734541)
