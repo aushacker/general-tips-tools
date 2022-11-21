@@ -1,0 +1,48 @@
+# groups, stp-lab.org
+dn: ou=groups,dc=stp-lab,dc=org
+ou: groups
+objectClass: organizationalUnit
+objectClass: top
+
+# users, stp-lab.org
+dn: ou=users,dc=stp-lab,dc=org
+ou: users
+objectClass: organizationalUnit
+objectClass: top
+
+# admin, groups, stp-lab.org
+dn: cn=admin,ou=groups,dc=stp-lab,dc=org
+cn: admin
+gidNumber: 500
+objectClass: posixGroup
+objectClass: top
+
+# user01, users, stp-lab.org
+dn: cn=user01,ou=users,dc=stp-lab,dc=org
+givenName: User
+sn: 01
+uid: user01
+userPassword:: e01ENX00bm1LOFNwNkQwOXd0TmFlKzhKZlRRPT0=
+uidNumber: 1000
+gidNumber: 500
+homeDirectory: /home/users/pthakur
+loginShell: /bin/bash
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: user01
+
+# user02, users, stp-lab.org
+dn: cn=user02,ou=users,dc=stp-lab,dc=org
+givenName: User
+sn: 02
+uid: user02
+userPassword:: e01ENX00bm1LOFNwNkQwOXd0TmFlKzhKZlRRPT0=
+uidNumber: 1001
+gidNumber: 500
+homeDirectory: /home/users/pthakur
+loginShell: /bin/bash
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: user02
