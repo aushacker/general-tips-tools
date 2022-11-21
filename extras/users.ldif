@@ -1,3 +1,11 @@
+# stp-lab.org
+dn: dc=stp-lab,dc=org
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+o: Red Hat STP
+dc: stp-lab
+
 # groups, stp-lab.org
 dn: ou=groups,dc=stp-lab,dc=org
 ou: groups
@@ -16,6 +24,23 @@ cn: admin
 gidNumber: 500
 objectClass: posixGroup
 objectClass: top
+memberUid: pthakur
+memberUid: user01
+
+# pthakur, users, stp-lab.org
+dn: cn=pthakur,ou=users,dc=stp-lab,dc=org
+givenName: Praveen
+sn: Thakur
+uid: pthakur
+userPassword:: e01ENX00bm1LOFNwNkQwOXd0TmFlKzhKZlRRPT0=
+uidNumber: 1000
+gidNumber: 500
+homeDirectory: /home/users/pthakur
+loginShell: /bin/bash
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: pthakur
 
 # user01, users, stp-lab.org
 dn: cn=user01,ou=users,dc=stp-lab,dc=org
@@ -46,3 +71,7 @@ objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: top
 cn: user02
+
+# search result
+search: 2
+result: 0 Success
