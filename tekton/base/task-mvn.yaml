@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: mvn
+  name: maven
   labels:
     app.kubernetes.io/version: '0.2a'
   annotations:
@@ -17,6 +17,8 @@ spec:
     extended to include the maven-repo workspace. This workspace is
     expected to be stored persistently between pipeline runs to
     improve build times.
+
+    See https://developers.redhat.com/blog/2020/02/26/speed-up-maven-builds-in-tekton-pipelines
   workspaces:
     - name: source
       description: The workspace consisting of maven project.

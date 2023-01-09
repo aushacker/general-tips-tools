@@ -4,9 +4,6 @@ metadata:
   name: java-ci
 spec:
   params: 
-    - name: deployment-name
-      type: string
-      description: name of the deployment to be patched
     - name: git-url
       type: string
       description: Repository URL to clone from
@@ -18,9 +15,9 @@ spec:
       type: string
       description: The context directory within the repository for sources on which we want to execute maven goals
       default: '.'
-    - name: IMAGE
+    - name: image
       type: string
-      description: image to be built from the code
+      description: The name (reference) of the image to build.
   tasks: 
     - name: git-clone
       taskRef:
@@ -36,9 +33,7 @@ spec:
           workspace: shared-workspace
     - name: maven-build
       taskRef:
-        name: mvn
-#        name: maven
-#        kind: ClusterTask
+        name: maven
       runAfter:
         - git-clone
       params:
@@ -57,6 +52,20 @@ spec:
           workspace: maven-settings
         - name: maven-repo
           workspace: maven-repo
+    - name: build-image
+      taskRef:
+        name: buildah
+        kind: ClusterTask
+      runAfter:
+        - maven-build
+      params:
+        - name: IMAGE
+          value: $(params.image)
+        - name: CONTEXT
+          value: $(params.context-dir)
+      workspaces:
+        - name: source
+          workspace: shared-workspace
   workspaces: 
     - name: shared-workspace
     - name: maven-settings
