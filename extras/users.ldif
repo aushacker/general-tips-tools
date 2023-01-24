@@ -1,0 +1,202 @@
+# extended LDIF
+#
+# LDAPv3
+# base <dc=stp-lab,dc=org> with scope subtree
+# filter: (objectclass=*)
+# requesting: ALL
+#
+
+# stp-lab.org
+dn: dc=stp-lab,dc=org
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+o: Red Hat STP
+dc: stp-lab
+
+# groups, stp-lab.org
+dn: ou=groups,dc=stp-lab,dc=org
+ou: groups
+objectClass: organizationalUnit
+objectClass: top
+
+# users, stp-lab.org
+dn: ou=users,dc=stp-lab,dc=org
+ou: users
+objectClass: organizationalUnit
+objectClass: top
+
+# admin, groups, stp-lab.org
+dn: cn=admin,ou=groups,dc=stp-lab,dc=org
+cn: admin
+gidNumber: 500
+objectClass: posixGroup
+objectClass: top
+memberUid: pthakur
+memberUid: user01
+
+# pthakur, users, stp-lab.org
+dn: cn=pthakur,ou=users,dc=stp-lab,dc=org
+givenName: Praveen
+sn: Thakur
+uid: pthakur
+uidNumber: 1000
+gidNumber: 500
+homeDirectory: /home/users/pthakur
+loginShell: /bin/bash
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: pthakur
+userPassword:: e01ENX01dk9YV3pPUkhIRVU5eVZ6SFFxTlpnPT0=
+
+# user01, users, stp-lab.org
+dn: cn=user01,ou=users,dc=stp-lab,dc=org
+givenName: User
+sn: 01
+uid: user01
+userPassword:: e01ENX00bm1LOFNwNkQwOXd0TmFlKzhKZlRRPT0=
+uidNumber: 1000
+gidNumber: 500
+homeDirectory: /home/users/pthakur
+loginShell: /bin/bash
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: user01
+
+# user02, users, stp-lab.org
+dn: cn=user02,ou=users,dc=stp-lab,dc=org
+givenName: User
+sn: 02
+uid: user02
+userPassword:: e01ENX00bm1LOFNwNkQwOXd0TmFlKzhKZlRRPT0=
+uidNumber: 1001
+gidNumber: 500
+homeDirectory: /home/users/pthakur
+loginShell: /bin/bash
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: user02
+
+# payments-admin, groups, stp-lab.org
+dn: cn=payments-admin,ou=groups,dc=stp-lab,dc=org
+cn: payments-admin
+gidNumber: 501
+objectClass: posixGroup
+objectClass: top
+memberUid: payadmin01
+
+# payments-operator, groups, stp-lab.org
+dn: cn=payments-operator,ou=groups,dc=stp-lab,dc=org
+cn: payments-operator
+gidNumber: 502
+objectClass: posixGroup
+objectClass: top
+memberUid: payops01
+
+# payments-viewer, groups, stp-lab.org
+dn: cn=payments-viewer,ou=groups,dc=stp-lab,dc=org
+cn: payments-viewer
+gidNumber: 503
+objectClass: posixGroup
+objectClass: top
+memberUid: payview01
+
+# Payments Admin01, users, stp-lab.org
+dn: cn=Payments Admin01,ou=users,dc=stp-lab,dc=org
+givenName: Payments
+sn: Admin01
+cn: Payments Admin01
+uid: payadmin01
+userPassword:: e01ENX01dk9YV3pPUkhIRVU5eVZ6SFFxTlpnPT0=
+uidNumber: 1002
+gidNumber: 501
+homeDirectory: /home/users/payadmin01
+loginShell: /bin/bash
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+
+# Payments Operator01, users, stp-lab.org
+dn: cn=Payments Operator01,ou=users,dc=stp-lab,dc=org
+givenName: Payments
+sn: Operator01
+cn: Payments Operator01
+uid: payops01
+userPassword:: e01ENX01dk9YV3pPUkhIRVU5eVZ6SFFxTlpnPT0=
+uidNumber: 1003
+gidNumber: 502
+homeDirectory: /home/users/payops01
+loginShell: /bin/bash
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+
+# Payments Viewer01, users, stp-lab.org
+dn: cn=Payments Viewer01,ou=users,dc=stp-lab,dc=org
+givenName: Payments
+sn: Viewer01
+cn: Payments Viewer01
+uid: payview01
+userPassword:: e01ENX01dk9YV3pPUkhIRVU5eVZ6SFFxTlpnPT0=
+uidNumber: 1004
+gidNumber: 503
+homeDirectory: /home/users/payview01
+loginShell: /bin/bash
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+
+# Payments Admin02, users, stp-lab.org
+dn: cn=Payments Admin02,ou=users,dc=stp-lab,dc=org
+givenName: Payments
+sn: Admin02
+cn: Payments Admin02
+uid: payadmin02
+userPassword:: e01ENX01dk9YV3pPUkhIRVU5eVZ6SFFxTlpnPT0=
+uidNumber: 1005
+gidNumber: 501
+homeDirectory: /home/users/payadmin02
+loginShell: /bin/bash
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+
+# Payments Operator02, users, stp-lab.org
+dn: cn=Payments Operator02,ou=users,dc=stp-lab,dc=org
+givenName: Payments
+sn: Operator02
+cn: Payments Operator02
+uid: payops02
+userPassword:: e01ENX01dk9YV3pPUkhIRVU5eVZ6SFFxTlpnPT0=
+uidNumber: 1006
+gidNumber: 502
+homeDirectory: /home/users/payops02
+loginShell: /bin/bash
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+
+# Payments Viewer02, users, stp-lab.org
+dn: cn=Payments Viewer02,ou=users,dc=stp-lab,dc=org
+givenName: Payments
+sn: Viewer02
+cn: Payments Viewer02
+uid: payview02
+userPassword:: e01ENX01dk9YV3pPUkhIRVU5eVZ6SFFxTlpnPT0=
+uidNumber: 1007
+gidNumber: 503
+homeDirectory: /home/users/payview02
+loginShell: /bin/bash
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+
+# search result
+search: 2
+result: 0 Success
+
+# numResponses: 17
+# numEntries: 16
