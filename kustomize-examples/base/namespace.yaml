@@ -1,6 +1,4 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: junk-test
-  labels:
-    app: junk
+  name: REPLACE.ME
